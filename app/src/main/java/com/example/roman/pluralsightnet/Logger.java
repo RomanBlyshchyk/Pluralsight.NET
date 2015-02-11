@@ -3,9 +3,7 @@ package com.example.roman.pluralsightnet;
 import android.app.Activity;
 import android.util.Log;
 
-/**
- * Created by roman on 15-02-08.
- */
+
 public class Logger {
 
     public final static String LOG_TAG = "ACTIVITY_EVENT"; //why make it final

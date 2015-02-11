@@ -70,6 +70,7 @@ public class MainActivity extends ActionBarActivity {
         finish();
     }
 
+
     //<editor-fold desc="lifecycle">
     @Override
     public void onStart(){
