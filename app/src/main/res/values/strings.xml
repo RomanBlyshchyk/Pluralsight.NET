@@ -18,5 +18,10 @@
     <string name="button1">One</string>
     <string name="button2">Two</string>
     <string name="action_showActivity3">Show Activity 3</string>
+    <string name="imageViewDesc">Picture Taken from the camera</string>
+    <string name="btnSend">Send</string>
+    <string name="TakePicture">Take a Picture</string>
+    <string name="getInfo">Get User Information</string>
+    <string name="title_activity_provide_info">ProvideInfoActivity</string>
 
 </resources>

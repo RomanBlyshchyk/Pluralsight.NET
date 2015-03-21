@@ -24,6 +24,14 @@
             android:name=".Activity3"
             android:label="@string/title_activity_activity3" >
         </activity>
+        <activity
+            android:name=".ProvideInfoActivity"
+            android:label="@string/title_activity_provide_info"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.roman.pluralsightnet.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

@@ -5,16 +5,96 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    static final int PROVIDE_INFO_CODE = 1000;
+    static final int TAKE_PICTURE_CODE = 1010;
+
+    // <editor-fold desc="getters">
+    public TextView getSelectionTextView() {
+        if(selectionTextView == null)
+            selectionTextView = (TextView) findViewById(R.id.textViewSelection);
+        return selectionTextView;
+    }
+
+    public TextView getFirstNameTextView() {
+        if(firstNameTextView == null)
+            firstNameTextView = (TextView) findViewById(R.id.textViewFIrst);
+        return firstNameTextView;
+    }
+
+    public TextView getLastnameTextview() {
+        if(lastNameTextView == null)
+            lastNameTextView = (TextView) findViewById(R.id.textViewLast);
+        return lastNameTextView;
+    }
+
+    public ImageView getPicture() {
+        if(picture == null)
+            picture = (ImageView) findViewById(R.id.imageView);
+        return picture;
+    }
+//</editor-fold>
+
+    TextView selectionTextView;
+    TextView firstNameTextView;
+    TextView lastNameTextView;
+    ImageView picture;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setupViews();
     }
 
+    private void setupViews() {
+        Button btnInfo = (Button) findViewById(R.id.btnGetInfo);
+        btnInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleGetInfoButton((Button) v);
+            }
+        });
+
+        Button btnTakePic = (Button) findViewById(R.id.btnTakePic);
+        btnTakePic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                handleTakePicButton((Button) v);
+            }
+        });
+
+        Button btnSend = (Button) findViewById(R.id.btnSend);
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                handleSendButton((Button)v);
+            }
+        });
+    }
+
+    //TODO: fill out handle buttons methods
+    private void handleSendButton(Button v) {
+        //will handle send button click
+    }
+
+    private void handleTakePicButton(Button v) {
+        //will handle taking a picture
+
+    }
+
+    private void handleGetInfoButton(Button v) {
+        // Will open new activity ProvideInfoActivity
+    }
+
+    //TODO: finish basic set up of the activity.
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
