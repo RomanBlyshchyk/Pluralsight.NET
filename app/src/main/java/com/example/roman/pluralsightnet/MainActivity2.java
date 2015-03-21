@@ -12,11 +12,26 @@ import android.widget.TextView;
 
 public class MainActivity2 extends ActionBarActivity implements View.OnClickListener {
 
+    static final String isSwappedState = "isSwappedState";
+    static Boolean isSwapped = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_activity2);
         setupUiEvents();
+
+        if(savedInstanceState != null)
+            restoreState(savedInstanceState);
+    }
+
+    private void restoreState(Bundle savedInstanceState) {
+        Boolean swapState = savedInstanceState.getBoolean(isSwappedState,false);
+        Button btn = (Button) findViewById(R.id.button);
+        if(swapState) {
+            handleButton1Click(btn);
+            isSwapped = !isSwapped;
+        }
     }
 
     void setupUiEvents() {
@@ -31,6 +46,8 @@ public class MainActivity2 extends ActionBarActivity implements View.OnClickList
         String temp = (String) txt1.getText();
         txt1.setText(txt2.getText());
         txt2.setText(temp);
+
+        isSwapped = !isSwapped;
     }
 
 
@@ -66,14 +83,12 @@ public class MainActivity2 extends ActionBarActivity implements View.OnClickList
         return handled;
     }
 
-    void onClickMenuShowActivity1(MenuItem item )
-    {
+    void onClickMenuShowActivity1(MenuItem item ){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
-    void onClickMenuShowActivity3(MenuItem item )
-    {
+    void onClickMenuShowActivity3(MenuItem item ){
         Intent intent = new Intent(this, Activity3.class);
         startActivity(intent);
     }
@@ -105,6 +120,8 @@ public class MainActivity2 extends ActionBarActivity implements View.OnClickList
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         Logger.LogCallBack(this, "onSaveInstanceState");
+
+        outState.putBoolean(isSwappedState,isSwapped);
     }
 
     @Override
